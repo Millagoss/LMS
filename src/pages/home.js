@@ -4,7 +4,6 @@ import {
   FaBars,
   FaAddressBook,
   FaClock,
-  FaWhatsapp,
   FaFacebook,
   FaTwitter,
   FaFacebookMessenger,

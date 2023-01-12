@@ -9,6 +9,7 @@ import {
   FaTwitter,
   FaFacebookMessenger,
   FaAngleDown,
+  FaAngleUp,
 } from 'react-icons/fa';
 
 import powerLogo from '../Assets/power.png';
@@ -38,6 +39,7 @@ import { useState } from 'react';
 const Home = () => {
   const [showMenu, setShowMenu] = useState(false);
   const [showOffer, setShowOffer] = useState(false);
+  const [gttOn, setGttOn] = useState(false);
   const navLinks = useRef();
 
   const toggleMenu = () => {
@@ -51,6 +53,31 @@ const Home = () => {
     }, 3000);
   }, []);
 
+  const handleScroll = () => {
+    if (window.scrollY > 200) {
+      setGttOn(true);
+      return;
+    } else if (window.scrollY < 199) {
+      setGttOn(false);
+      return;
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+  const handleGoToTopClick = () => {
+    window.scroll({
+      top: 0,
+      left: 0,
+      behavior: 'smooth',
+    });
+  };
   return (
     <main>
       <div className='center-main'>
@@ -225,8 +252,8 @@ const Home = () => {
             <div>
               <h3>USEFUL LINKS</h3>
               <h4>home</h4>
-              <h4>Lottery resultes & winners</h4>
-              <h4>lottery promotions</h4>
+              <h4>resultes & winners</h4>
+              <h4>promotions</h4>
               <h4>about us</h4>
               <h4>contact us</h4>
             </div>
@@ -298,6 +325,11 @@ const Home = () => {
           close
         </div>
       </div>
+      {gttOn && (
+        <div className='go-to-top' onClick={handleGoToTopClick}>
+          <FaAngleUp />
+        </div>
+      )}
     </main>
   );
 };

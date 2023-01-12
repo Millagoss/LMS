@@ -398,6 +398,7 @@ h4 {
 }
 .center-main {
   width: 100%;
+  height: auto;
   overflow: hidden;
 }
 .block-container {
@@ -940,6 +941,7 @@ main {
   }
   .center-main {
     width: 100%;
+    height: auto;
     overflow: hidden;
   }
 
@@ -1241,6 +1243,7 @@ main {
   .footer {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    margin-bottom: 5rem;
   }
 
   .footer-section {
